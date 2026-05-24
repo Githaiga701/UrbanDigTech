@@ -14,7 +14,7 @@ export default function ManagedIT(){
           <h1 className="text-3xl font-semibold">Managed IT Services</h1>
           <p className="mt-4 text-gray-700">Our Managed IT Services deliver proactive, secure, and scalable technology operations to streamline IT, reduce downtime, and improve performance.</p>
 
-          <section className="mt-6 bg-white p-6 rounded-lg shadow">
+          <section className="mt-6 bg-white p-6 rounded-lg shadow transform transition hover:scale-105 duration-200">
             <h3 className="font-semibold">What We Provide</h3>
             <ul className="mt-3 list-disc list-inside text-gray-600">
               <li>24/7 IT monitoring and support</li>

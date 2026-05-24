@@ -25,8 +25,8 @@ export default function Home() {
                 <h1 className="text-4xl md:text-5xl font-bold">Urban Digital Technologies</h1>
                 <p className="mt-4 text-lg">Secure, scalable, and innovative technology solutions — Managed IT, Cloud, Cybersecurity and Infrastructure services to power your business.</p>
                 <div className="mt-6 flex gap-4">
-                  <a href="/contact" className="inline-block bg-white text-primary font-semibold px-6 py-3 rounded-lg shadow">Contact Us</a>
-                  <a href="/services" className="inline-block border border-white/30 text-white px-6 py-3 rounded-lg">View Services</a>
+                  <a href="/contact" className="inline-block bg-white text-primary font-semibold px-6 py-3 rounded-lg shadow transform hover:scale-105 transition">Contact Us</a>
+                  <a href="/services" className="inline-block border border-white/30 text-white px-6 py-3 rounded-lg transform hover:scale-105 transition">View Services</a>
                 </div>
               </div>
             </div>
