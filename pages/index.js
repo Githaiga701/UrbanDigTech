@@ -1,200 +1,260 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+
+const serviceCards = [
+  ['MS', 'Managed Services', 'Proactive IT operations, monitoring, patching, support, and infrastructure care.'],
+  ['HD', 'IT Support', 'Responsive helpdesk coverage that keeps users productive and systems available.'],
+  ['CS', 'Cybersecurity', 'Threat monitoring, endpoint protection, identity controls, and incident response.'],
+  ['CL', 'Cloud Services', 'Cloud migration, hybrid management, backup, governance, and cost optimization.']
+]
+
+const featured = ['Microsoft 365', 'Azure', 'AWS', 'Google Cloud', 'Defender', 'Power BI', 'SharePoint', 'Endpoint Security']
+
+const testimonials = [
+  ['Operations Lead', 'Urban Digital helped us bring support, monitoring, and security reporting into one clear process.'],
+  ['Finance Director', 'The biggest improvement was predictability. We know what is being managed, what needs attention, and what comes next.'],
+  ['IT Coordinator', 'Their managed services gave our internal team breathing room while improving response times for users.']
+]
+
+const benefits = [
+  'Predictable managed service coverage.',
+  'Responsive support for teams and devices.',
+  'Security controls built into daily operations.',
+  'Cloud and hybrid systems managed from one plan.',
+  'Backup, recovery, and continuity planning.',
+  'Reporting that keeps leadership informed.'
+]
+
+const workflowItems = [
+  ['Employee Onboarding', 'Prepare accounts, devices, access, and policies so new team members are ready faster.'],
+  ['Central IT Management', 'Track infrastructure health, support activity, risks, assets, and improvement priorities.'],
+  ['Strategic IT Projects', 'Plan migrations, office moves, compliance work, and system upgrades with a managed partner.'],
+  ['Real-time Support', 'Give users a clear route to help when work is blocked by IT issues.']
+]
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Urban Digital Technologies — Managed IT & Cloud Services</title>
-        <meta name="description" content="Managed IT, Cloud, Cybersecurity and Infrastructure services" />
-        <meta property="og:title" content="Urban Digital Technologies — Managed IT & Cloud Services" />
-        <meta property="og:description" content="Secure, scalable, and innovative technology solutions — Managed IT, Cloud, Cybersecurity and Infrastructure services to power your business." />
+        <title>Urban Digital Technologies | Managed IT, Cloud & Cybersecurity</title>
+        <meta name="description" content="Professional managed IT, cloud, cybersecurity, and infrastructure services for growing organizations." />
+        <meta property="og:title" content="Urban Digital Technologies | Managed IT, Cloud & Cybersecurity" />
+        <meta property="og:description" content="Secure, scalable, and proactive technology operations for modern businesses." />
         <meta property="og:image" content="/logo.svg" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+
       <Header />
+
       <main>
-        <section className="py-20" style={{background: 'linear-gradient(90deg,#0ea5a4 0%, #0b7b79 100%)'}}>
-          <div className="container-max text-white">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="flex-shrink-0">
-                <img src="/logo.svg" alt="Urban Digital logo" className="w-20 h-20 rounded-md shadow-md" />
+        <section className="tech-grid relative overflow-hidden">
+          <div className="container-max grid min-h-[calc(100vh-141px)] items-center gap-12 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:py-20">
+            <div className="motion-rise max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200">You request. We plan. We deliver.</p>
+              <h1 className="mt-5 text-4xl font-extrabold leading-tight text-white md:text-6xl">
+                Managed IT services for companies that need dependable technology.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+                Get proactive support, cloud management, cybersecurity, backup planning, and infrastructure oversight from one accountable technology partner.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link href="/contact" className="rounded-md bg-cyan-300 px-6 py-3 text-center font-semibold text-slate-950 shadow-xl shadow-cyan-950/30 transition hover:bg-cyan-200">
+                  Request a Consultation
+                </Link>
+                <Link href="/services" className="rounded-md border border-slate-500/60 px-6 py-3 text-center font-semibold text-slate-100 transition hover:border-cyan-300/70 hover:text-cyan-100">
+                  Learn More
+                </Link>
               </div>
-              <div className="max-w-3xl">
-                <h1 className="text-4xl md:text-5xl font-bold">Urban Digital Technologies</h1>
-                <p className="mt-4 text-lg">Secure, scalable, and innovative technology solutions — Managed IT, Cloud, Cybersecurity and Infrastructure services to power your business.</p>
-                <div className="mt-6 flex gap-4">
-                  <a href="/contact" className="inline-block bg-white text-primary font-semibold px-6 py-3 rounded-lg shadow transform hover:scale-105 transition">Contact Us</a>
-                  <a href="/services" className="inline-block border border-white/30 text-white px-6 py-3 rounded-lg transform hover:scale-105 transition">View Services</a>
+            </div>
+
+            <div className="motion-rise-delay">
+              <div className="glass-panel motion-float pulse-line rounded-lg p-5">
+                <div className="rounded-md border border-cyan-300/20 bg-slate-950/60 p-5">
+                  <div className="flex items-center justify-between border-b border-slate-700/60 pb-4">
+                    <div>
+                      <div className="text-sm text-slate-400">Managed Services Dashboard</div>
+                      <div className="mt-1 text-xl font-semibold text-white">Live Operations Snapshot</div>
+                    </div>
+                    <div className="rounded-md bg-emerald-300/12 px-3 py-1 text-sm font-semibold text-emerald-200">Online</div>
+                  </div>
+
+                  <div className="mt-5 grid gap-4">
+                    {[
+                      ['Support response', 'Active', 'bg-cyan-300'],
+                      ['Threat monitoring', '24/7', 'bg-emerald-300'],
+                      ['Backup checks', 'Verified', 'bg-blue-300']
+                    ].map(([label, value, color]) => (
+                      <div key={label} className="rounded-md border border-slate-700/60 bg-slate-900/70 p-4">
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-slate-400">{label}</span>
+                          <span className="font-semibold text-white">{value}</span>
+                        </div>
+                        <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-800">
+                          <div className={`h-full w-4/5 rounded-full ${color}`} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-5 grid grid-cols-4 gap-3 text-center">
+                    {serviceCards.map(([code, title]) => (
+                      <Link key={title} href="/services" className="rounded-md border border-slate-700/60 bg-slate-900/50 px-2 py-4 transition hover:border-cyan-300/50 hover:bg-cyan-300/10">
+                        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-cyan-300/40 bg-cyan-300/10 text-sm font-extrabold text-cyan-100">{code}</div>
+                        <div className="mt-3 text-xs font-semibold text-slate-300">{title}</div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="services" className="py-12">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-semibold">Our Services</h2>
-            <p className="mt-2 text-gray-600 max-w-3xl">We help businesses transform their operations through secure, scalable, and managed technology services tailored for modern enterprises.</p>
-
-            <div className="mt-8 space-y-6">
-              <article className="p-6 bg-white rounded-lg shadow">
-                <h3 className="font-semibold text-xl">Managed IT Services</h3>
-                <p className="mt-2 text-gray-600">Our Managed IT Services provide proactive, secure, and scalable technology operations to streamline IT, reduce downtime, and improve performance. We act as a strategic technology partner handling monitoring, network and endpoint management, patching, helpdesk support, and IT asset management.</p>
-                <ul className="mt-3 list-disc list-inside text-sm text-gray-600">
-                  <li>24/7 IT monitoring and support</li>
-                  <li>Network and endpoint management</li>
-                  <li>System maintenance, patching and performance optimization</li>
-                  <li>User support and helpdesk services</li>
-                  <li>Disaster recovery and business continuity</li>
-                </ul>
-              </article>
-
-              <article className="p-6 bg-white rounded-lg shadow">
-                <h3 className="font-semibold text-xl">Cloud Management Services</h3>
-                <p className="mt-2 text-gray-600">We manage and optimize cloud infrastructure across public and private platforms, delivering migration, monitoring, security, and cost optimization.</p>
-                <ul className="mt-3 list-disc list-inside text-sm text-gray-600">
-                  <li>Cloud infrastructure deployment and migration</li>
-                  <li>Multi-cloud management (Azure, AWS, GCP)</li>
-                  <li>Cloud security, backup and disaster recovery</li>
-                  <li>Resource scaling and cost optimization</li>
-                </ul>
-              </article>
-
-              <article className="p-6 bg-white rounded-lg shadow">
-                <h3 className="font-semibold text-xl">Hybrid Management Solutions</h3>
-                <p className="mt-2 text-gray-600">Seamlessly integrate on-premises infrastructure with cloud environments to balance performance, control, and scalability.</p>
-                <ul className="mt-3 list-disc list-inside text-sm text-gray-600">
-                  <li>Hybrid infrastructure architecture and deployment</li>
-                  <li>Workload balancing and centralized management</li>
-                  <li>Data synchronization, backup and compliance</li>
-                </ul>
-              </article>
-
-              <article className="p-6 bg-white rounded-lg shadow">
-                <h3 className="font-semibold text-xl">Managed Infrastructure & Hosting</h3>
-                <p className="mt-2 text-gray-600">Comprehensive infrastructure management including servers, storage, networking, virtualization, and hosting (IaaS/PaaS/SaaS) with high-availability and monitoring.</p>
-                <ul className="mt-3 list-disc list-inside text-sm text-gray-600">
-                  <li>Infrastructure as a Service (IaaS): virtual servers, storage, networking</li>
-                  <li>Platform as a Service (PaaS): app hosting, DB platforms, CI/CD environments</li>
-                  <li>Software as a Service (SaaS): productivity, collaboration and industry apps</li>
-                  <li>Cloud & hybrid hosting, dedicated and VPS options</li>
-                </ul>
-              </article>
-
-              <article className="p-6 bg-white rounded-lg shadow">
-                <h3 className="font-semibold text-xl">Managed Cybersecurity Services</h3>
-                <p className="mt-2 text-gray-600">Security is integral to all our offerings — from SOC and threat monitoring to Microsoft Defender integration and incident response.</p>
-                <ul className="mt-3 list-disc list-inside text-sm text-gray-600">
-                  <li>Security Operations Center (SOC) and threat detection</li>
-                  <li>Endpoint protection and vulnerability assessments</li>
-                  <li>Firewall and identity/access management</li>
-                  <li>Incident response, penetration testing and compliance support</li>
-                </ul>
-              </article>
+        <section className="section-band py-8">
+          <div className="container-max">
+            <p className="text-center text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200">Technology platforms we support</p>
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+              {featured.map((item) => (
+                <div key={item} className="rounded-md border border-slate-700/60 bg-slate-950/30 px-3 py-3 text-center text-sm font-semibold text-slate-300">
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="details" className="py-12 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-semibold">Business Overview</h2>
-            <p className="mt-4 text-gray-700">Urban Digital Technologies provides end-to-end IT management and digital transformation services for organizations seeking reliable, secure, and scalable technology solutions. Our model emphasizes proactive management to minimize downtime, strengthen cybersecurity, and optimize infrastructure performance.</p>
+        <section className="py-20">
+          <div className="container-max grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200">Better IT starts here</p>
+              <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">Keep your systems secure, streamlined, and profitable.</h2>
+              <p className="mt-4 text-slate-400">We help teams remove technology friction with managed support, cloud governance, security operations, and continuity planning.</p>
+              <Link href="/services" className="mt-8 inline-block rounded-md border border-cyan-300/40 bg-cyan-300/10 px-5 py-3 font-semibold text-cyan-100 transition hover:bg-cyan-300/20">
+                View Services
+              </Link>
+            </div>
 
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="font-semibold">Core Objectives</h3>
-                <ul className="mt-3 list-disc list-inside text-gray-600">
-                  <li>Deliver reliable managed IT services</li>
-                  <li>Support digital transformation initiatives</li>
-                  <li>Provide secure cloud and hybrid solutions</li>
-                  <li>Enhance cybersecurity and compliance</li>
-                  <li>Improve operational efficiency</li>
-                  <li>Build long-term strategic partnerships</li>
-                </ul>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h3 className="font-semibold">Value Proposition</h3>
-                <p className="mt-2 text-gray-600">We deliver enterprise-level IT expertise, proactive support, and scalable services that reduce costs, improve business continuity, and strengthen IT performance for organizations of all sizes.</p>
-              </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {serviceCards.map(([code, title, copy]) => (
+                <article key={title} className="glass-panel rounded-lg p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/40">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-cyan-300/40 bg-cyan-300/10 text-sm font-extrabold text-cyan-100">{code}</div>
+                  <h3 className="mt-5 text-xl font-semibold text-white">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-400">{copy}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="delivery" className="py-12">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-semibold">Service Delivery Model</h2>
-            <div className="mt-4 space-y-4 text-gray-600">
-              <p><strong>Assessment & Planning:</strong> We assess infrastructure, identify risks, and design tailored IT strategies.</p>
-              <p><strong>Deployment & Migration:</strong> Specialists execute migrations with minimal disruption.</p>
-              <p><strong>Monitoring & Management:</strong> Continuous monitoring ensures uptime, security, and performance.</p>
-              <p><strong>Optimization & Reporting:</strong> Ongoing analytics and tuning to improve efficiency.</p>
-              <p><strong>Support & Improvement:</strong> Rapid issue response and continuous service enhancement.</p>
+        <section className="section-band py-20">
+          <div className="container-max">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200">Real clients. Real operations.</p>
+              <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">Support that gives leadership and users more confidence.</h2>
+              <p className="mt-4 text-slate-400">These examples show the outcomes our managed services are designed to support.</p>
+            </div>
+
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {testimonials.map(([role, quote]) => (
+                <article key={role} className="glass-panel rounded-lg p-6">
+                  <div className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">{role}</div>
+                  <p className="mt-4 leading-7 text-slate-300">"{quote}"</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="why" className="py-12 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-semibold">Why Choose Us</h2>
-            <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-700">
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h4 className="font-semibold">Expertise & Experience</h4>
-                <p className="mt-2">Experienced IT professionals across infrastructure, cloud, and cybersecurity.</p>
+        <section className="py-20">
+          <div className="container-max grid gap-10 lg:grid-cols-[1fr_0.9fr]">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200">What you get</p>
+              <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">Managed services built around uptime, response, and visibility.</h2>
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                {benefits.map((benefit) => (
+                  <div key={benefit} className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 text-sm text-slate-300">
+                    {benefit}
+                  </div>
+                ))}
               </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h4 className="font-semibold">Proactive Support</h4>
-                <p className="mt-2">We prevent issues before they impact operations.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h4 className="font-semibold">Security-First</h4>
-                <p className="mt-2">Security woven into every solution to ensure compliance and protection.</p>
+            </div>
+
+            <div className="glass-panel rounded-lg p-6">
+              <h3 className="text-2xl font-semibold text-white">Service metrics</h3>
+              <div className="mt-6 grid grid-cols-2 gap-4">
+                {[
+                  ['24/7', 'Monitoring'],
+                  ['15 min', 'Priority response target'],
+                  ['4', 'Core service lines'],
+                  ['1', 'Accountable partner']
+                ].map(([value, label]) => (
+                  <div key={label} className="rounded-md border border-slate-700/60 bg-slate-950/30 p-4">
+                    <div className="text-2xl font-extrabold text-white">{value}</div>
+                    <div className="mt-1 text-sm text-slate-400">{label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section id="industries" className="py-12">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-semibold">Industries We Support</h2>
-            <p className="mt-3 text-gray-600">We serve hospitality, healthcare, retail, finance, education, real estate, government, manufacturing, logistics and corporate enterprises.</p>
-          </div>
-        </section>
+        <section className="section-band py-20">
+          <div className="container-max grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200">Power up your workflow</p>
+              <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">Real-time IT support for your team.</h2>
+              <p className="mt-4 text-slate-400">Stay focused on the business while recurring IT operations, support, projects, and security tasks are managed in the background.</p>
+            </div>
 
-        <section id="about" className="py-12 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-semibold">About Urban Digital Technologies</h2>
-            <p className="mt-4 text-gray-700">We combine technical expertise, proactive support, and strategic consulting to deliver innovative, secure, and business-driven technology solutions. Our mission is to empower businesses through reliable technology that enables digital transformation and long-term growth.</p>
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h4 className="font-semibold">Mission</h4>
-                <p className="mt-2 text-gray-600">To empower businesses through reliable, secure, and innovative technology solutions.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow">
-                <h4 className="font-semibold">Vision</h4>
-                <p className="mt-2 text-gray-600">To become a trusted global technology partner delivering world-class managed IT, cloud, and cybersecurity solutions.</p>
-              </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {workflowItems.map(([title, copy]) => (
+                <article key={title} className="glass-panel rounded-lg p-6">
+                  <h3 className="font-semibold text-white">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-400">{copy}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="contact" className="py-12">
-          <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-2xl font-semibold">Contact Us</h2>
-            <p className="mt-2 text-gray-600">Partner with us to transform your IT operations with secure, scalable, and fully managed technology solutions.</p>
-            <form className="mt-6 grid grid-cols-1 gap-4">
-              <input className="p-3 border rounded" placeholder="Name" />
-              <input className="p-3 border rounded" placeholder="Email" />
-              <input className="p-3 border rounded" placeholder="Company (optional)" />
-              <textarea className="p-3 border rounded" rows="5" placeholder="How can we help?" />
-              <button className="bg-sky-600 text-white px-4 py-2 rounded">Send</button>
-            </form>
-            <p className="mt-4 text-sm text-gray-500">For immediate inquiries, email us at info@urbandigitaltech.example</p>
+        <section className="py-20">
+          <div className="container-max">
+            <div className="glass-panel rounded-lg p-8 md:p-10">
+              <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200">Contact us anywhere, anytime</p>
+                  <h2 className="mt-3 text-3xl font-bold text-white">Talk to a human about your IT needs.</h2>
+                  <p className="mt-3 leading-7 text-slate-400">Use the chat button, call button, text tab, or contact form. We will help map the right support, cloud, and cybersecurity plan for your organization.</p>
+                  <div className="mt-6 grid gap-2 text-sm text-slate-300">
+                    <a href="tel:+254711000000" className="transition hover:text-cyan-100">Sales: +254 711 000 000</a>
+                    <a href="tel:+254722000000" className="transition hover:text-cyan-100">Support: +254 722 000 000</a>
+                    <a href="mailto:info@urbandigitaltech.example" className="transition hover:text-cyan-100">info@urbandigitaltech.example</a>
+                  </div>
+                </div>
+
+                <form className="grid gap-4">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <input className="rounded-md border border-slate-600/70 bg-slate-950/50 p-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/70" placeholder="First Name" />
+                    <input className="rounded-md border border-slate-600/70 bg-slate-950/50 p-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/70" placeholder="Last Name" />
+                  </div>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <input type="email" className="rounded-md border border-slate-600/70 bg-slate-950/50 p-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/70" placeholder="Email" />
+                    <input className="rounded-md border border-slate-600/70 bg-slate-950/50 p-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/70" placeholder="Phone Number" />
+                  </div>
+                  <input className="rounded-md border border-slate-600/70 bg-slate-950/50 p-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/70" placeholder="Company Name" />
+                  <textarea rows={5} className="rounded-md border border-slate-600/70 bg-slate-950/50 p-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/70" placeholder="How can we help?" />
+                  <Link href="/contact" className="rounded-md bg-cyan-300 px-5 py-3 text-center font-semibold text-slate-950 transition hover:bg-cyan-200">
+                    Continue to Contact Page
+                  </Link>
+                </form>
+              </div>
+            </div>
           </div>
         </section>
       </main>
+
       <Footer />
     </>
   )

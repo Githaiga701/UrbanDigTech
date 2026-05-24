@@ -4,11 +4,11 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#0ea5a4',
-          dark: '#0b7b79'
+          DEFAULT: '#38bdf8',
+          dark: '#075985'
         },
         accent: {
-          DEFAULT: '#ffb020'
+          DEFAULT: '#6ee7b7'
         }
       },
       fontFamily: {
