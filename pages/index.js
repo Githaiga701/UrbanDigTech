@@ -8,17 +8,26 @@ export default function Home() {
       <Head>
         <title>Urban Digital Technologies — Managed IT & Cloud Services</title>
         <meta name="description" content="Managed IT, Cloud, Cybersecurity and Infrastructure services" />
+        <meta property="og:title" content="Urban Digital Technologies — Managed IT & Cloud Services" />
+        <meta property="og:description" content="Secure, scalable, and innovative technology solutions — Managed IT, Cloud, Cybersecurity and Infrastructure services to power your business." />
+        <meta property="og:image" content="/logo.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header />
       <main>
         <section className="py-20" style={{background: 'linear-gradient(90deg,#0ea5a4 0%, #0b7b79 100%)'}}>
           <div className="container-max text-white">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl font-bold">Urban Digital Technologies</h1>
-              <p className="mt-4 text-lg">Secure, scalable, and innovative technology solutions — Managed IT, Cloud, Cybersecurity and Infrastructure services to power your business.</p>
-              <div className="mt-6 flex gap-4">
-                <a href="/contact" className="inline-block bg-white text-primary font-semibold px-6 py-3 rounded-lg shadow">Contact Us</a>
-                <a href="/services" className="inline-block border border-white/30 text-white px-6 py-3 rounded-lg">View Services</a>
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-shrink-0">
+                <img src="/logo.svg" alt="Urban Digital logo" className="w-20 h-20 rounded-md shadow-md" />
+              </div>
+              <div className="max-w-3xl">
+                <h1 className="text-4xl md:text-5xl font-bold">Urban Digital Technologies</h1>
+                <p className="mt-4 text-lg">Secure, scalable, and innovative technology solutions — Managed IT, Cloud, Cybersecurity and Infrastructure services to power your business.</p>
+                <div className="mt-6 flex gap-4">
+                  <a href="/contact" className="inline-block bg-white text-primary font-semibold px-6 py-3 rounded-lg shadow">Contact Us</a>
+                  <a href="/services" className="inline-block border border-white/30 text-white px-6 py-3 rounded-lg">View Services</a>
+                </div>
               </div>
             </div>
           </div>
