@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', company: '', service: 'Managed IT', message: '' })
   const [status, setStatus] = useState(null)
 
   async function handleSubmit(e) {
@@ -27,7 +27,7 @@ export default function Contact() {
 
       if (res.ok) {
         setStatus('sent')
-        setForm({ name: '', email: '', company: '', message: '' })
+        setForm({ name: '', email: '', company: '', service: 'Managed IT', message: '' })
       } else {
         setStatus('error')
       }
@@ -55,7 +55,7 @@ export default function Contact() {
     <>
       <Head>
         <title>Contact | Urban Digital Technologies</title>
-        <meta name="description" content="Contact Urban Digital Technologies for managed IT, cloud, cybersecurity, and infrastructure services." />
+        <meta name="description" content="Contact Urban Digital Technologies for managed IT, cloud, cybersecurity, Apple products, and importing services." />
       </Head>
       <Header />
       <main>
@@ -63,14 +63,20 @@ export default function Contact() {
           <div className="container-max grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div className="motion-rise">
               <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200">Contact</p>
-              <h1 className="mt-4 text-4xl font-extrabold text-white md:text-5xl">Plan a better technology operating model.</h1>
-              <p className="mt-5 text-lg leading-8 text-slate-300">Tell us what you need to improve, secure, migrate, or manage. We will respond with practical next steps for your environment.</p>
+              <h1 className="mt-4 text-4xl font-extrabold text-white md:text-5xl">Request IT support, Apple products, or importing services.</h1>
+              <p className="mt-5 text-lg leading-8 text-slate-300">Tell us what you need to improve, secure, source, import, or manage. We will respond with practical next steps.</p>
+
+              <div className="mt-6 grid gap-3 text-sm text-slate-300">
+                <a href="tel:+254703437447" className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 transition hover:border-cyan-300/50 hover:text-cyan-100">Kenya: +254 703 437447</a>
+                <a href="tel:+971526123126" className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 transition hover:border-cyan-300/50 hover:text-cyan-100">Business: +971 52 612 3126</a>
+                <a href="mailto:Kevin.musomi@atlantisdubai.com" className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 transition hover:border-cyan-300/50 hover:text-cyan-100">Kevin.musomi@atlantisdubai.com</a>
+              </div>
 
               <div className="mt-8 grid gap-4">
                 {[
                   ['Service planning', 'Managed IT, cloud, security, and infrastructure roadmaps.'],
-                  ['Operational support', 'Helpdesk, monitoring, maintenance, and continuity programs.'],
-                  ['Security improvement', 'Threat visibility, endpoint protection, access, and response planning.']
+                  ['Apple product supply', 'Imported Apple devices, accessories, sourcing, and business rollout support.'],
+                  ['Importing services', 'Supplier coordination, purchase planning, shipment updates, and delivery support.']
                 ].map(([title, copy]) => (
                   <div key={title} className="rounded-lg border border-slate-700/60 bg-slate-950/30 p-4">
                     <h2 className="font-semibold text-white">{title}</h2>
@@ -94,8 +100,19 @@ export default function Contact() {
                 <input id="company" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} placeholder="Company name" className="mt-2 w-full rounded-md border border-slate-600/70 bg-slate-950/50 p-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/70" />
               </div>
               <div>
+                <label className="text-sm font-medium text-slate-200" htmlFor="service">Request type</label>
+                <select id="service" value={form.service} onChange={(e) => setForm({ ...form, service: e.target.value })} className="mt-2 w-full rounded-md border border-slate-600/70 bg-slate-950/50 p-3 text-slate-100 outline-none transition focus:border-cyan-300/70">
+                  <option>Managed IT</option>
+                  <option>Cybersecurity</option>
+                  <option>Cloud Services</option>
+                  <option>Imported Apple Products</option>
+                  <option>Importing Services</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
                 <label className="text-sm font-medium text-slate-200" htmlFor="message">How can we help?</label>
-                <textarea id="message" required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={6} placeholder="Describe your current IT, cloud, or security needs." className="mt-2 w-full rounded-md border border-slate-600/70 bg-slate-950/50 p-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/70" />
+                <textarea id="message" required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={6} placeholder="Describe your IT, Apple product, or importing request." className="mt-2 w-full rounded-md border border-slate-600/70 bg-slate-950/50 p-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/70" />
               </div>
               <button type="submit" disabled={status === 'sending'} className="rounded-md bg-cyan-300 px-5 py-3 font-semibold text-slate-950 transition hover:bg-cyan-200 disabled:cursor-not-allowed disabled:opacity-70">
                 {status === 'sending' ? 'Sending...' : 'Send Message'}

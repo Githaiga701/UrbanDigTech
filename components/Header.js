@@ -5,15 +5,17 @@ const serviceLinks = [
   ['Managed IT Services', '/services/managed-it'],
   ['Cloud Management', '/services/cloud'],
   ['Managed Cybersecurity', '/services/cybersecurity'],
+  ['Imported Apple Products', '/services'],
+  ['Importing Services', '/services'],
   ['Infrastructure Hosting', '/services'],
   ['Business Continuity', '/services'],
   ['IT Consulting', '/services']
 ]
 
-const phoneLinks = [
-  ['Main Line', '+254 700 000 000'],
-  ['Sales', '+254 711 000 000'],
-  ['Support', '+254 722 000 000']
+const contactLinks = [
+  ['Kenya', '+254 703 437447', 'tel:+254703437447'],
+  ['Business', '+971 52 612 3126', 'tel:+971526123126'],
+  ['Email', 'Kevin.musomi@atlantisdubai.com', 'mailto:Kevin.musomi@atlantisdubai.com']
 ]
 
 function MenuIcon() {
@@ -33,12 +35,12 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-40 border-b border-slate-700/40 bg-[#020817]/88 backdrop-blur-xl">
         <div className="border-b border-slate-700/40 bg-slate-950/70">
-          <div className="container-max grid gap-2 py-3 text-xs text-slate-300 sm:grid-cols-3">
-            {phoneLinks.map(([label, number]) => (
-              <a key={label} href={`tel:${number.replace(/\s/g, '')}`} className="flex items-center justify-center gap-2 rounded-md border border-slate-700/50 bg-slate-900/50 px-3 py-2 transition hover:border-cyan-300/50 hover:text-cyan-100">
+          <div className="container-max grid gap-2 py-3 text-xs text-slate-300 lg:grid-cols-3">
+            {contactLinks.map(([label, value, href]) => (
+              <a key={label} href={href} className="flex min-w-0 items-center justify-center gap-2 rounded-md border border-slate-700/50 bg-slate-900/50 px-3 py-2 transition hover:border-cyan-300/50 hover:text-cyan-100">
                 <span className="h-2 w-2 rounded-full bg-cyan-300" />
                 <span className="font-semibold text-slate-100">{label}</span>
-                <span>{number}</span>
+                <span className="truncate">{value}</span>
               </a>
             ))}
           </div>
@@ -106,8 +108,8 @@ export default function Header() {
             <h2 className="font-semibold text-white">Talk to a human</h2>
             <p className="mt-2 text-sm leading-6 text-slate-300">Use the call, text, or chat options for a faster response.</p>
             <div className="mt-4 grid gap-2 text-sm">
-              {phoneLinks.map(([label, number]) => (
-                <a key={label} href={`tel:${number.replace(/\s/g, '')}`} className="text-cyan-100 transition hover:text-white">{label}: {number}</a>
+              {contactLinks.map(([label, value, href]) => (
+                <a key={label} href={href} className="text-cyan-100 transition hover:text-white">{label}: {value}</a>
               ))}
             </div>
           </div>
