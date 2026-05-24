@@ -9,10 +9,10 @@ export default function Header() {
           <div className="text-lg font-semibold">Urban Digital Technologies</div>
         </div>
         <nav className="flex items-center gap-6">
-          <Link href="/services">Services</Link>
-          <Link href="/about"><a className="hover:underline">About</a></Link>
-          <Link href="/contact"><a className="hover:underline">Contact</a></Link>
-          <Link href="/contact"><a className="ml-4 inline-block bg-primary text-white px-4 py-2 rounded">Get a Quote</a></Link>
+          <Link href="/services" className="hover:underline">Services</Link>
+          <Link href="/about" className="hover:underline">About</Link>
+          <Link href="/contact" className="hover:underline">Contact</Link>
+          <Link href="/contact" className="ml-4 inline-block bg-primary text-white px-4 py-2 rounded">Get a Quote</Link>
         </nav>
       </div>
     </header>
