@@ -10,7 +10,7 @@ export default function Contact() {
   async function handleSubmit(e) {
     e.preventDefault()
     setStatus('sending')
-
+//Githaiga created this
     try {
       const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
       let recaptchaToken = null
