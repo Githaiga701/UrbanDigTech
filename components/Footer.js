@@ -42,7 +42,7 @@ export default function Footer() {
           <div className="mt-4 grid gap-2 text-sm">
             <a href="tel:+254703437447" className="text-cyan-200 transition hover:text-white">+254 703 437447</a>
             <a href="tel:+971526123126" className="text-cyan-200 transition hover:text-white">+971 52 612 3126</a>
-            <a href="mailto:Kevin.musomi@atlantisdubai.com" className="text-cyan-200 transition hover:text-white">Kevin.musomi@atlantisdubai.com</a>
+            <a href="mailto:info@urbandigitaltech.com" className="text-cyan-200 transition hover:text-white">info@urbandigitaltech.com</a>
           </div>
         </div>
       </div>

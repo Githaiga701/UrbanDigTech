@@ -5,7 +5,7 @@ import services from '../data/services'
 const contactLinks = [
   ['Kenya', '+254 703 437447', 'tel:+254703437447'],
   ['Business', '+971 52 612 3126', 'tel:+971526123126'],
-  ['Email', 'Kevin.musomi@atlantisdubai.com', 'mailto:Kevin.musomi@atlantisdubai.com']
+  ['Email', 'info@urbandigitaltech.com', 'mailto:info@urbandigitaltech.com']
 ]
 
 const navLinks = [

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function PageHero({
   eyebrow,
@@ -13,10 +14,12 @@ export default function PageHero({
   return (
     <section className={`relative overflow-hidden bg-[#020817] ${compact ? 'min-h-[42vh]' : 'min-h-[58vh] lg:min-h-[68vh]'}`}>
       {image && (
-        <img
+        <Image
           src={image}
           alt={imageAlt || ''}
-          className="absolute inset-0 h-full w-full object-cover object-center opacity-35"
+          fill
+          className="absolute inset-0 h-full w-full object-cover object-center opacity-30"
+          priority
         />
       )}
       <div className="absolute inset-0 bg-[linear-gradient(90deg,#020817_0%,rgba(2,8,23,0.88)_40%,rgba(2,8,23,0.55)_100%)]" />

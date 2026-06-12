@@ -69,7 +69,7 @@ export default function Contact() {
               <div className="mt-6 grid gap-3 text-sm text-slate-300">
                 <a href="tel:+254703437447" className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 transition hover:border-cyan-300/50 hover:text-cyan-100">Kenya: +254 703 437447</a>
                 <a href="tel:+971526123126" className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 transition hover:border-cyan-300/50 hover:text-cyan-100">Business: +971 52 612 3126</a>
-                <a href="mailto:Kevin.musomi@atlantisdubai.com" className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 transition hover:border-cyan-300/50 hover:text-cyan-100">Kevin.musomi@atlantisdubai.com</a>
+                <a href="mailto:info@urbandigitaltech.com" className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 transition hover:border-cyan-300/50 hover:text-cyan-100">info@urbandigitaltech.com</a>
               </div>
 
               <div className="mt-8 grid gap-4">

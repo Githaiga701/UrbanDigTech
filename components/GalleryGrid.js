@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Image from 'next/image'
 
 export default function GalleryGrid({ images, columns = 'columns-2 sm:columns-3 lg:columns-4' }) {
   const [activeImage, setActiveImage] = useState(null)
@@ -13,7 +14,16 @@ export default function GalleryGrid({ images, columns = 'columns-2 sm:columns-3 
             onClick={() => setActiveImage(image)}
             className="mb-4 block w-full overflow-hidden rounded-lg border border-slate-700/60 bg-slate-950/30 transition hover:border-cyan-300/50 hover:shadow-lg hover:shadow-cyan-950/20"
           >
-            <img src={image.src} alt={image.alt} className="w-full object-cover" loading="lazy" />
+            <div className="relative w-full h-56">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
+                className="object-cover"
+                priority={false}
+              />
+            </div>
           </button>
         ))}
       </div>

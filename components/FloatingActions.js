@@ -34,7 +34,7 @@ export default function FloatingActions() {
               <a href="tel:+971526123126" className="rounded-md border border-slate-600 px-4 py-3 text-center text-sm font-semibold text-slate-200 transition hover:border-cyan-300/60">
                 Call Business Line
               </a>
-              <a href="mailto:Kevin.musomi@atlantisdubai.com" className="rounded-md border border-slate-600 px-4 py-3 text-center text-sm font-semibold text-slate-200 transition hover:border-cyan-300/60">
+              <a href="mailto:info@urbandigitaltech.com" className="rounded-md border border-slate-600 px-4 py-3 text-center text-sm font-semibold text-slate-200 transition hover:border-cyan-300/60">
                 Email Support
               </a>
             </div>
