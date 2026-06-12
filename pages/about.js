@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import PageHero from '../components/PageHero'
+import SectionHeader from '../components/SectionHeader'
+import CTABand from '../components/CTABand'
 
 export default function About() {
   return (
@@ -11,47 +14,38 @@ export default function About() {
       </Head>
       <Header />
       <main>
-        <section className="tech-grid py-20">
-          <div className="container-max grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-            <div className="motion-rise">
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200">About</p>
-              <h1 className="mt-4 text-4xl font-extrabold text-white md:text-5xl">A technology partner focused on resilience, devices, imports, and growth.</h1>
-              <p className="mt-5 text-lg leading-8 text-slate-300">Urban Digital Technologies provides end-to-end IT management, cybersecurity, cloud support, imported Apple product supply, and importing services for organizations and professionals.</p>
-            </div>
+        <PageHero
+          eyebrow="About"
+          title="A technology partner focused on resilience and growth"
+          subtitle="We align hardware, cloud, security, and support to the way your business actually runs."
+          image="/gallery/16.jpeg"
+          imageAlt="Modern office technology"
+          compact
+          primaryCta={{ label: 'Work With Us', href: '/contact' }}
+          secondaryCta={{ label: 'Our Services', href: '/services' }}
+        />
 
-            <div className="glass-panel motion-rise-delay rounded-lg p-6">
-              <h2 className="text-2xl font-semibold text-white">How we work</h2>
-              <p className="mt-4 leading-7 text-slate-400">We align technology operations to the way a business actually runs. That means clear assessment, practical implementation, continuous monitoring, and ongoing improvements that leadership can measure.</p>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                {['Proactive support', 'Security-first design', 'Apple product sourcing', 'Import coordination'].map((item) => (
-                  <div key={item} className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 text-sm font-semibold text-slate-200">{item}</div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section-band py-20">
+        <section className="py-16">
           <div className="container-max grid gap-5 md:grid-cols-2">
             <section className="glass-panel rounded-lg p-6">
               <h2 className="text-2xl font-semibold text-white">Mission</h2>
-              <p className="mt-3 leading-7 text-slate-400">To empower clients through reliable technology services, trusted product sourcing, and practical importing support that improves growth and resilience.</p>
+              <p className="mt-3 leading-7 text-slate-400">To empower clients through reliable technology services, trusted product sourcing, and practical support that improves growth and resilience.</p>
             </section>
             <section className="glass-panel rounded-lg p-6">
               <h2 className="text-2xl font-semibold text-white">Vision</h2>
-              <p className="mt-3 leading-7 text-slate-400">To become a trusted technology partner delivering managed IT, cloud, cybersecurity, Apple product supply, and importing services for modern organizations.</p>
+              <p className="mt-3 leading-7 text-slate-400">To become a trusted technology partner delivering hardware, cloud, cybersecurity, networking, managed services, and AV & ELV solutions for modern organizations.</p>
             </section>
           </div>
         </section>
 
-        <section className="py-20">
+        <section className="section-band py-16">
           <div className="container-max">
-            <h2 className="text-3xl font-bold text-white">Why businesses choose Urban Digital Technologies</h2>
+            <SectionHeader eyebrow="Approach" title="How we work" copy="Clear assessment, practical implementation, continuous monitoring, and improvements leadership can measure." />
             <div className="mt-8 grid gap-5 md:grid-cols-3">
               {[
                 ['Operational reliability', 'Structured management that reduces outages and improves support response.'],
                 ['Security at the core', 'Protection, access, backup, and response practices built into every service line.'],
-                ['Product and import support', 'Apple product sourcing and importing coordination handled with clear communication.']
+                ['Hardware and AV expertise', 'Enterprise hardware supply and smart office solutions delivered with clear communication.']
               ].map(([title, copy]) => (
                 <div key={title} className="glass-panel rounded-lg p-6">
                   <h3 className="font-semibold text-white">{title}</h3>
@@ -61,6 +55,8 @@ export default function About() {
             </div>
           </div>
         </section>
+
+        <CTABand title="Let's build your technology roadmap" secondaryLabel="View Products" secondaryHref="/products" />
       </main>
       <Footer />
     </>

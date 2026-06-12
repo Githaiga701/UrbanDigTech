@@ -1,21 +1,19 @@
 import { useState } from 'react'
 import Link from 'next/link'
-
-const serviceLinks = [
-  ['Managed IT Services', '/services/managed-it'],
-  ['Cloud Management', '/services/cloud'],
-  ['Managed Cybersecurity', '/services/cybersecurity'],
-  ['Imported Apple Products', '/services'],
-  ['Importing Services', '/services'],
-  ['Infrastructure Hosting', '/services'],
-  ['Business Continuity', '/services'],
-  ['IT Consulting', '/services']
-]
+import services from '../data/services'
 
 const contactLinks = [
   ['Kenya', '+254 703 437447', 'tel:+254703437447'],
   ['Business', '+971 52 612 3126', 'tel:+971526123126'],
   ['Email', 'Kevin.musomi@atlantisdubai.com', 'mailto:Kevin.musomi@atlantisdubai.com']
+]
+
+const navLinks = [
+  ['Services', '/services'],
+  ['Products', '/products'],
+  ['Gallery', '/gallery'],
+  ['About', '/about'],
+  ['Contact', '/contact']
 ]
 
 function MenuIcon() {
@@ -56,9 +54,9 @@ export default function Header() {
           </Link>
 
           <nav className="hidden items-center gap-6 text-sm font-medium text-slate-300 lg:flex">
-            <Link href="/services" className="transition hover:text-cyan-200">Services</Link>
-            <Link href="/about" className="transition hover:text-cyan-200">About</Link>
-            <Link href="/contact" className="transition hover:text-cyan-200">Contact</Link>
+            {navLinks.map(([label, href]) => (
+              <Link key={label} href={href} className="transition hover:text-cyan-200">{label}</Link>
+            ))}
             <Link href="/contact" className="rounded-md border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-cyan-100 shadow-lg shadow-cyan-950/30 transition hover:border-cyan-200/60 hover:bg-cyan-300/20">Get a Quote</Link>
           </nav>
 
@@ -67,7 +65,7 @@ export default function Header() {
             aria-label="Open navigation menu"
             aria-expanded={isOpen}
             onClick={() => setIsOpen(true)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/30 bg-cyan-300/10 transition hover:border-cyan-200/70"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-cyan-300/30 bg-cyan-300/10 transition hover:border-cyan-200/70 lg:hidden"
           >
             <MenuIcon />
           </button>
@@ -79,7 +77,7 @@ export default function Header() {
         <div className="flex items-center justify-between border-b border-slate-700/60 p-6">
           <div>
             <div className="font-semibold text-white">Navigation</div>
-            <div className="mt-1 text-sm text-slate-400">Services, support, and contact options</div>
+            <div className="mt-1 text-sm text-slate-400">Services, products, and contact</div>
           </div>
           <button type="button" onClick={() => setIsOpen(false)} className="rounded-md border border-slate-600 px-3 py-2 text-sm text-slate-200 transition hover:border-cyan-300/60">
             Close
@@ -89,16 +87,17 @@ export default function Header() {
         <div className="h-[calc(100%-89px)] overflow-y-auto p-6">
           <div className="grid gap-3">
             <Link onClick={() => setIsOpen(false)} href="/" className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 font-semibold text-slate-100 transition hover:border-cyan-300/50">Home</Link>
-            <Link onClick={() => setIsOpen(false)} href="/about" className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 font-semibold text-slate-100 transition hover:border-cyan-300/50">About Us</Link>
-            <Link onClick={() => setIsOpen(false)} href="/contact" className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 font-semibold text-slate-100 transition hover:border-cyan-300/50">Contact Us</Link>
+            {navLinks.map(([label, href]) => (
+              <Link key={label} onClick={() => setIsOpen(false)} href={href} className="rounded-md border border-slate-700/60 bg-slate-950/30 px-4 py-3 font-semibold text-slate-100 transition hover:border-cyan-300/50">{label}</Link>
+            ))}
           </div>
 
           <div className="mt-8">
             <h2 className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-200">Services</h2>
             <div className="mt-4 grid gap-2">
-              {serviceLinks.map(([label, href]) => (
-                <Link key={label} onClick={() => setIsOpen(false)} href={href} className="rounded-md px-4 py-3 text-sm text-slate-300 transition hover:bg-cyan-300/10 hover:text-cyan-100">
-                  {label}
+              {services.map((service) => (
+                <Link key={service.slug} onClick={() => setIsOpen(false)} href={`/services/${service.slug}`} className="rounded-md px-4 py-3 text-sm text-slate-300 transition hover:bg-cyan-300/10 hover:text-cyan-100">
+                  {service.title}
                 </Link>
               ))}
             </div>

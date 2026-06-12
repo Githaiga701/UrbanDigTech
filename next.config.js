@@ -3,6 +3,15 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  async redirects() {
+    return [
+      {
+        source: '/services/managed-it',
+        destination: '/services/managed-services',
+        permanent: true
+      }
+    ]
+  },
   async headers() {
     return [
       {
